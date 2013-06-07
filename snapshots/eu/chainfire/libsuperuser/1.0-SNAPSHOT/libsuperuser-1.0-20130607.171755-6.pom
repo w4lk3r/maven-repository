@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eu.chainfire</groupId>
+    <artifactId>libsuperuser</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>4.1.1.4</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>maven-repository-snapshots</id>
+            <url>https://raw.github.com/w4lk3r/maven-repository/master/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>maven-repository-releases</id>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+            <url>https://raw.github.com/w4lk3r/maven-repository/master/releases</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <repository>
+            <id>github-releases</id>
+            <name>GitHub Releases Repository</name>
+            <url>https://raw.github.com/w4lk3r/maven-repository/master/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>github-snapshots</id>
+            <name>GitHub Snapshots Repository</name>
+            <url>https://raw.github.com/w4lk3r/maven-repository/master/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <properties>
+        <!-- github server corresponds to entry in ~/.m2/settings.xml -->
+        <github.global.server>github</github.global.server>
+    </properties>
+
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+        <plugins>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <altDeploymentRepository>internal.repo::default::file:///Users/walker/Dev/maven-repository/snapshots</altDeploymentRepository>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.8</version>
+                <configuration>
+                    <message>Maven artifacts for ${project.artifactId} ${project.version}</message>   <!-- git commit message -->
+                    <noJekyll>true</noJekyll>                                   <!-- disable webpage processing -->
+                    <outputDirectory>/Users/walker/Dev/maven-repository</outputDirectory>  <!-- matches distribution management repository url above -->
+                    <branch>refs/heads/master</branch>                          <!-- remote branch name -->
+                    <includes><include>**/*</include></includes>
+                    <repositoryName>maven-repository</repositoryName>           <!-- github repo name -->
+                    <repositoryOwner>w4lk3r</repositoryOwner>                   <!-- github username  -->
+                </configuration>
+                <executions>
+                    <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
