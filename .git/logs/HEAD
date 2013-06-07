@@ -1,0 +1,3 @@
+0000000000000000000000000000000000000000 af4034817e16a0c70a3fb3adef4f886aed7126e1 w4lk3r <lone_tale@163.com> 1368726779 +0800	clone: from https://github.com/w4lk3r/maven-repository.git
+af4034817e16a0c70a3fb3adef4f886aed7126e1 9a940b5840332c4580b466fd182850b7dccf369a w4lk3r <lone_tale@163.com> 1368726869 +0800	commit: Initial setup
+9a940b5840332c4580b466fd182850b7dccf369a 239ea880822bb67f010d77f817afed242c1d80e9 w4lk3r <lone_tale@163.com> 1368727348 +0800	commit: Add android support library v4 r13
