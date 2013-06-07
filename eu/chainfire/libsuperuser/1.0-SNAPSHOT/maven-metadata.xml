@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata modelVersion="1.1.0">
-  <groupId>com.wk</groupId>
-  <artifactId>appmanager</artifactId>
+  <groupId>eu.chainfire</groupId>
+  <artifactId>libsuperuser</artifactId>
   <version>1.0-SNAPSHOT</version>
   <versioning>
     <snapshot>
-      <timestamp>20130520.162343</timestamp>
+      <timestamp>20130607.151821</timestamp>
       <buildNumber>1</buildNumber>
     </snapshot>
-    <lastUpdated>20130520162343</lastUpdated>
+    <lastUpdated>20130607151821</lastUpdated>
     <snapshotVersions>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>1.0-20130520.162343-1</value>
-        <updated>20130520162343</updated>
+        <value>1.0-20130607.151821-1</value>
+        <updated>20130607151821</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>1.0-20130520.162343-1</value>
-        <updated>20130520162343</updated>
+        <value>1.0-20130607.151821-1</value>
+        <updated>20130607151821</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>

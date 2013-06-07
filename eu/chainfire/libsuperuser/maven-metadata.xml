@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-  <groupId>com.wk</groupId>
-  <artifactId>appmanager</artifactId>
+  <groupId>eu.chainfire</groupId>
+  <artifactId>libsuperuser</artifactId>
   <versioning>
     <versions>
       <version>1.0-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20130520162343</lastUpdated>
+    <lastUpdated>20130607151821</lastUpdated>
   </versioning>
 </metadata>
